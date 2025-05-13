@@ -13,6 +13,10 @@ struct CharactersView: View {
     @State private var searchText: String = ""
     @State private var hideProgressView: Bool = false
 
+    @State var showAlert: Bool = false
+    @State var alertTitle: String = ""
+    @State var alertMessage: String = ""
+    
     var searchResults: [Character] {
         if searchText.isEmpty {
             return characters
@@ -71,6 +75,13 @@ struct CharactersView: View {
         }
         .searchable(text: $searchText)
         .onAppear(perform: getCharacters)
+        .alert(alertTitle, isPresented: $showAlert) {
+            Button("OK") {
+                showAlert.toggle()
+            }
+        } message: {
+            Text(alertMessage)
+        }
     }
     
     func getSeasons(for character: Character) -> String {
@@ -107,7 +118,6 @@ struct CharactersView: View {
         }
 
         hideProgressView = false
-        //hideProgressView.toggle()
         
         var request = URLRequest(url: URL(string: "https://yj8ke8qonl.execute-api.eu-west-1.amazonaws.com/characters")!)
         request.httpMethod = "GET"
@@ -119,13 +129,18 @@ struct CharactersView: View {
         let task = URLSession(configuration: config)
             .dataTask(with: request, completionHandler: { data, response, error in
                 if error != nil {
-                    print("Oops")
+                    print(error!)
+                    //Display error message
+                    alertTitle = "Oops"
+                    alertMessage = "Could not connect to server. Please try again later."
+                    showAlert.toggle()
+                    hideProgressView = true
+                    return
                 }
 
                 let characters = try! JSONDecoder().decode([Character].self, from: data!)
                 self.characters = characters
                 hideProgressView = true
-                //hideProgressView.toggle()
             })
         task.resume()
     }
