@@ -46,6 +46,17 @@
                ReferencedContainer = "container:iOSTakeHomeChallenge.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5451B7FB2DD4015D0031A5C2"
+               BuildableName = "iOSTakeHomeChallengeUITests.xctest"
+               BlueprintName = "iOSTakeHomeChallengeUITests"
+               ReferencedContainer = "container:iOSTakeHomeChallenge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
