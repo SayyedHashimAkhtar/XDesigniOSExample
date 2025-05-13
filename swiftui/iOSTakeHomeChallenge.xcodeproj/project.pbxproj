@@ -13,6 +13,7 @@
 		2F496F99290579E1008C7B56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F496F98290579E1008C7B56 /* Preview Assets.xcassets */; };
 		2F496FA129057A13008C7B56 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA029057A13008C7B56 /* Character.swift */; };
 		2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA429057A3D008C7B56 /* CharactersView.swift */; };
+		54EA39622DD3EE8300BFBDC6 /* ProgressView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,16 @@
 		2F496F98290579E1008C7B56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F496FA029057A13008C7B56 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		2F496FA429057A3D008C7B56 /* CharactersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
+		54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		54EA39602DD3EE6200BFBDC6 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2F496F8B290579E1008C7B56 /* Frameworks */ = {
@@ -55,6 +65,7 @@
 		2F496F90290579E1008C7B56 /* iOSTakeHomeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				54EA39602DD3EE6200BFBDC6 /* Views */,
 				2F496F9F29057A13008C7B56 /* Models */,
 				2F496FA229057A27008C7B56 /* Modules */,
 				2F496F91290579E1008C7B56 /* iOSTakeHomeChallengeApp.swift */,
@@ -77,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				2F496FA029057A13008C7B56 /* Character.swift */,
+				54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,6 +123,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				54EA39602DD3EE6200BFBDC6 /* Views */,
 			);
 			name = iOSTakeHomeChallenge;
 			productName = iOSTakeHomeChallenge;
@@ -167,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54EA39622DD3EE8300BFBDC6 /* ProgressView+extension.swift in Sources */,
 				2F496FA129057A13008C7B56 /* Character.swift in Sources */,
 				2F496F94290579E1008C7B56 /* ContentView.swift in Sources */,
 				2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */,

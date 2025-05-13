@@ -11,6 +11,7 @@ struct CharactersView: View {
     @State var characters: [Character] = []
     var previewMode: Bool
     @State private var searchText: String = ""
+    @State private var hideProgressView: Bool = false
 
     var searchResults: [Character] {
         if searchText.isEmpty {
@@ -29,6 +30,7 @@ struct CharactersView: View {
             ZStack {
                 Image("imgCharacters")
                     .resizable()
+                ProgressView("Loading").isHidden($hideProgressView)
                 
                 ScrollView {
                     VStack {
@@ -100,9 +102,13 @@ struct CharactersView: View {
     func getCharacters() {
         if previewMode {
             characters = Character.examples
+            hideProgressView = true
             return
         }
 
+        hideProgressView = false
+        //hideProgressView.toggle()
+        
         var request = URLRequest(url: URL(string: "https://yj8ke8qonl.execute-api.eu-west-1.amazonaws.com/characters")!)
         request.httpMethod = "GET"
         let config = URLSessionConfiguration.default
@@ -118,6 +124,8 @@ struct CharactersView: View {
 
                 let characters = try! JSONDecoder().decode([Character].self, from: data!)
                 self.characters = characters
+                hideProgressView = true
+                //hideProgressView.toggle()
             })
         task.resume()
     }
