@@ -12,7 +12,8 @@
 		2F496F96290579E1008C7B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F496F95290579E1008C7B56 /* Assets.xcassets */; };
 		2F496F99290579E1008C7B56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F496F98290579E1008C7B56 /* Preview Assets.xcassets */; };
 		2F496FA129057A13008C7B56 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA029057A13008C7B56 /* Character.swift */; };
-		2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA429057A3D008C7B56 /* CharactersView.swift */; };
+		5451B8082DD402F50031A5C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5451B8072DD402F50031A5C2 /* AVFoundation.framework */; };
+		5451B8162DD4042A0031A5C2 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5451B8152DD4042A0031A5C2 /* SoundPlayer.swift */; };
 		54EA39622DD3EE8300BFBDC6 /* ProgressView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */; };
 		54EA39642DD3F83D00BFBDC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA39632DD3F83D00BFBDC6 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -41,9 +42,10 @@
 		2F496F95290579E1008C7B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F496F98290579E1008C7B56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F496FA029057A13008C7B56 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		2F496FA429057A3D008C7B56 /* CharactersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		5451B7F32DD3FF870031A5C2 /* iOSTakeHomeChallenge.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSTakeHomeChallenge.xctestplan; sourceTree = "<group>"; };
 		5451B7FC2DD4015D0031A5C2 /* iOSTakeHomeChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTakeHomeChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5451B8072DD402F50031A5C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5451B8152DD4042A0031A5C2 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressView+extension.swift"; sourceTree = "<group>"; };
 		54EA39632DD3F83D00BFBDC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54EA39812DD3FD7800BFBDC6 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
@@ -54,6 +56,11 @@
 		5451B7FD2DD4015D0031A5C2 /* iOSTakeHomeChallengeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = iOSTakeHomeChallengeUITests;
+			sourceTree = "<group>";
+		};
+		5451B80C2DD403CB0031A5C2 /* Sound */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		54EA39602DD3EE6200BFBDC6 /* Views */ = {
@@ -78,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5451B8082DD402F50031A5C2 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +133,6 @@
 			children = (
 				54EA39602DD3EE6200BFBDC6 /* Views */,
 				2F496F9F29057A13008C7B56 /* Models */,
-				2F496FA229057A27008C7B56 /* Modules */,
 				2F496F91290579E1008C7B56 /* iOSTakeHomeChallengeApp.swift */,
 				2F496F93290579E1008C7B56 /* ContentView.swift */,
 				2F496F95290579E1008C7B56 /* Assets.xcassets */,
@@ -145,33 +152,20 @@
 		2F496F9F29057A13008C7B56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5451B80C2DD403CB0031A5C2 /* Sound */,
 				54EA39652DD3F8F700BFBDC6 /* API */,
 				2F496FA029057A13008C7B56 /* Character.swift */,
 				54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */,
 				54EA39632DD3F83D00BFBDC6 /* Constants.swift */,
+				5451B8152DD4042A0031A5C2 /* SoundPlayer.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2F496FA229057A27008C7B56 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				2F496FA329057A32008C7B56 /* Characters */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		2F496FA329057A32008C7B56 /* Characters */ = {
-			isa = PBXGroup;
-			children = (
-				2F496FA429057A3D008C7B56 /* CharactersView.swift */,
-			);
-			path = Characters;
 			sourceTree = "<group>";
 		};
 		54EA39802DD3FD7800BFBDC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5451B8072DD402F50031A5C2 /* AVFoundation.framework */,
 				54EA39812DD3FD7800BFBDC6 /* Testing.framework */,
 			);
 			name = Frameworks;
@@ -193,6 +187,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5451B80C2DD403CB0031A5C2 /* Sound */,
 				54EA39602DD3EE6200BFBDC6 /* Views */,
 				54EA39652DD3F8F700BFBDC6 /* API */,
 			);
@@ -322,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EA39622DD3EE8300BFBDC6 /* ProgressView+extension.swift in Sources */,
+				5451B8162DD4042A0031A5C2 /* SoundPlayer.swift in Sources */,
 				2F496FA129057A13008C7B56 /* Character.swift in Sources */,
 				2F496F94290579E1008C7B56 /* ContentView.swift in Sources */,
-				2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */,
 				2F496F92290579E1008C7B56 /* iOSTakeHomeChallengeApp.swift in Sources */,
 				54EA39642DD3F83D00BFBDC6 /* Constants.swift in Sources */,
 			);
@@ -482,6 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSTakeHomeChallenge/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -511,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iOSTakeHomeChallenge/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

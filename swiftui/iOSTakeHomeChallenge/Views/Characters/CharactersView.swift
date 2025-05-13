@@ -17,6 +17,7 @@ struct CharactersView: View {
     @State var alertTitle: String = ""
     @State var alertMessage: String = ""
     
+    
     var searchResults: [Character] {
         if searchText.isEmpty {
             return characters
@@ -74,7 +75,7 @@ struct CharactersView: View {
             }
         }
         .searchable(text: $searchText)
-        .onAppear(perform: getCharacters)
+        .onAppear(perform: loadData)
         .alert(alertTitle, isPresented: $showAlert) {
             Button("OK") {
                 showAlert.toggle()
@@ -82,6 +83,15 @@ struct CharactersView: View {
         } message: {
             Text(alertMessage)
         }
+    }
+    
+    func loadData() {
+        if(!previewMode) {
+            //Play background sound
+            SoundPlayer.introSound()
+        }
+        
+        getCharacters()
     }
     
     func getSeasons(for character: Character) -> String {
@@ -125,6 +135,7 @@ struct CharactersView: View {
                 alertTitle = "Oops"
                 alertMessage = "Could not connect to server. Please try again later."
                 self.showAlert.toggle()
+                SoundPlayer.errorSound()
                 self.hideProgressView = true
                 return
             }
