@@ -14,6 +14,7 @@
 		2F496FA129057A13008C7B56 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA029057A13008C7B56 /* Character.swift */; };
 		2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F496FA429057A3D008C7B56 /* CharactersView.swift */; };
 		54EA39622DD3EE8300BFBDC6 /* ProgressView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */; };
+		54EA39642DD3F83D00BFBDC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA39632DD3F83D00BFBDC6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,12 +26,18 @@
 		2F496FA029057A13008C7B56 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		2F496FA429057A3D008C7B56 /* CharactersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressView+extension.swift"; sourceTree = "<group>"; };
+		54EA39632DD3F83D00BFBDC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		54EA39602DD3EE6200BFBDC6 /* Views */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Views;
+			sourceTree = "<group>";
+		};
+		54EA39652DD3F8F700BFBDC6 /* API */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -87,8 +94,10 @@
 		2F496F9F29057A13008C7B56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				54EA39652DD3F8F700BFBDC6 /* API */,
 				2F496FA029057A13008C7B56 /* Character.swift */,
 				54EA39612DD3EE8300BFBDC6 /* ProgressView+extension.swift */,
+				54EA39632DD3F83D00BFBDC6 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				54EA39602DD3EE6200BFBDC6 /* Views */,
+				54EA39652DD3F8F700BFBDC6 /* API */,
 			);
 			name = iOSTakeHomeChallenge;
 			productName = iOSTakeHomeChallenge;
@@ -187,6 +197,7 @@
 				2F496F94290579E1008C7B56 /* ContentView.swift in Sources */,
 				2F496FA529057A3D008C7B56 /* CharactersView.swift in Sources */,
 				2F496F92290579E1008C7B56 /* iOSTakeHomeChallengeApp.swift in Sources */,
+				54EA39642DD3F83D00BFBDC6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

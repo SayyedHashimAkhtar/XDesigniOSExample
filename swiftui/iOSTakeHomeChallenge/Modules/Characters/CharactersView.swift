@@ -119,30 +119,20 @@ struct CharactersView: View {
 
         hideProgressView = false
         
-        var request = URLRequest(url: URL(string: "https://yj8ke8qonl.execute-api.eu-west-1.amazonaws.com/characters")!)
-        request.httpMethod = "GET"
-        let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 15
-        config.httpAdditionalHeaders = [
-            "Authorization": "Bearer 754t!si@glcE2qmOFEcN"
-        ]
-        let task = URLSession(configuration: config)
-            .dataTask(with: request, completionHandler: { data, response, error in
-                if error != nil {
-                    print(error!)
-                    //Display error message
-                    alertTitle = "Oops"
-                    alertMessage = "Could not connect to server. Please try again later."
-                    showAlert.toggle()
-                    hideProgressView = true
-                    return
-                }
+        CharacterAPI.fetchCharacters { characters in
+            
+            guard let characters = characters else {
+                alertTitle = "Oops"
+                alertMessage = "Could not connect to server. Please try again later."
+                self.showAlert.toggle()
+                self.hideProgressView = true
+                return
+            }
+            
+            self.characters = characters
+            self.hideProgressView = true
+        }
 
-                let characters = try! JSONDecoder().decode([Character].self, from: data!)
-                self.characters = characters
-                hideProgressView = true
-            })
-        task.resume()
     }
 }
 
