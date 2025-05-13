@@ -23,7 +23,7 @@ struct CharactersView: View {
             ScrollView {
                 VStack {
                     ForEach(characters, id: \.self) { character in
-                        VStack(spacing: 4) {
+                        VStack(alignment: .leading , spacing: 4) {
                             HStack {
                                 Text(character.name)
                                     .font(.title3)
@@ -32,19 +32,22 @@ struct CharactersView: View {
                                     Text("Seasons").bold()
                                     Text(getSeasons(for: character)).foregroundColor(.secondary)
                                 }
-                            }
+                            }.padding()
+                            
                             HStack {
                                 Text("Culture:").bold()
                                 Text(character.culture).foregroundColor(.secondary)
-                            }
+                            }.padding(.horizontal)
+                            
                             HStack {
                                 Text("Born:").bold()
                                 Text(character.born).foregroundColor(.secondary)
-                            }
+                            }.padding(.horizontal)
+                            
                             HStack {
                                 Text("Died:").bold()
                                 Text(character.died).foregroundColor(.secondary)
-                            }
+                            }.padding(.horizontal)
                         }
                         Divider()
                             .border(.white)
