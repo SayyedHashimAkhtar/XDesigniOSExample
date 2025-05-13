@@ -8,7 +8,7 @@ struct Character: Codable, Hashable {
     let culture: String
     let born: String
     let died: String
-    let aliases: [Int]
+    let aliases: [String]
     let tvSeries: [String]
     let playedBy: [String]
 }
