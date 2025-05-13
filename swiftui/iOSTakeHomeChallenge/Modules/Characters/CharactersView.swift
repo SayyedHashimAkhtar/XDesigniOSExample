@@ -10,55 +10,67 @@ import SwiftUI
 struct CharactersView: View {
     @State var characters: [Character] = []
     var previewMode: Bool
+    @State private var searchText: String = ""
 
+    var searchResults: [Character] {
+        if searchText.isEmpty {
+            return characters
+        } else {
+            return characters.filter { $0.name.contains(searchText) }
+        }
+    }
+    
     init(previewMode: Bool = false) {
         self.previewMode = previewMode
     }
 
     var body: some View {
-        ZStack {
-            Image("imgCharacters")
-                .resizable()
-
-            ScrollView {
-                VStack {
-                    ForEach(characters, id: \.self) { character in
-                        VStack(alignment: .leading , spacing: 4) {
-                            HStack {
-                                Text(character.name)
-                                    .font(.title3)
-                                Spacer()
-                                VStack(alignment: .trailing) {
-                                    Text("Seasons").bold()
-                                    Text(getSeasons(for: character)).foregroundColor(.secondary)
-                                }
-                            }.padding()
-                            
-                            HStack {
-                                Text("Culture:").bold()
-                                Text(character.culture).foregroundColor(.secondary)
-                            }.padding(.horizontal)
-                            
-                            HStack {
-                                Text("Born:").bold()
-                                Text(character.born).foregroundColor(.secondary)
-                            }.padding(.horizontal)
-                            
-                            HStack {
-                                Text("Died:").bold()
-                                Text(character.died).foregroundColor(.secondary)
-                            }.padding(.horizontal)
+        NavigationStack {
+            ZStack {
+                Image("imgCharacters")
+                    .resizable()
+                
+                ScrollView {
+                    VStack {
+                        ForEach(searchResults, id: \.self) { character in
+                            VStack(alignment: .leading , spacing: 4) {
+                                HStack {
+                                    Text(character.name)
+                                        .font(.title3)
+                                    Spacer()
+                                    VStack(alignment: .trailing) {
+                                        Text("Seasons").bold()
+                                        Text(getSeasons(for: character)).foregroundColor(.secondary)
+                                    }
+                                }.padding()
+                                
+                                HStack {
+                                    Text("Culture:").bold()
+                                    Text(character.culture).foregroundColor(.secondary)
+                                }.padding(.horizontal)
+                                
+                                HStack {
+                                    Text("Born:").bold()
+                                    Text(character.born).foregroundColor(.secondary)
+                                }.padding(.horizontal)
+                                
+                                HStack {
+                                    Text("Died:").bold()
+                                    Text(character.died).foregroundColor(.secondary)
+                                }.padding(.horizontal)
+                            }
+                            Divider()
+                                .border(.white)
                         }
-                        Divider()
-                            .border(.white)
                     }
                 }
+                .padding()
             }
-            .padding()
         }
+        .searchable(text: $searchText)
         .onAppear(perform: getCharacters)
     }
-
+    
     func getSeasons(for character: Character) -> String {
         var seasons = ""
 
